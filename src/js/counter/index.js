@@ -22,9 +22,27 @@ export default class Counter{
         btnMinus.classList.add('counter__button')
         btnMinus.innerText = '-'
         btnMinus.addEventListener('click', () => {this.minus(display)})
+
+        const bntStart = document.createElement('button')
+        bntStart.classList.add('counter__button')
+        bntStart.innerText = 'Start Timer'
+        bntStart.addEventListener('click', () => {this.timerStart(display)})
+
+        const btnStop = document.createElement('button')
+        btnStop.classList.add('counter__button')
+        btnStop.innerText = 'Stop Timer'
+        btnStop.addEventListener('click', () => {this.timerStop()})
+
+        const btnReset = document.createElement('button')
+        btnReset.classList.add('counter__button')
+        btnReset.innerText = 'Reset Timer'
+        btnReset.addEventListener('click', () => {this.resetTimer(display)})
         
         row.appendChild(btnPlus)
         row.appendChild(btnMinus)
+        row.appendChild(bntStart)
+        row.appendChild(btnStop)
+        row.appendChild(btnReset)
 
         container.appendChild(display)
         container.appendChild(row)
@@ -42,14 +60,19 @@ export default class Counter{
         display.innerText = this.count;
     }
 
-    timerStart(){
+    timerStart(display){
         this.timer = setInterval(() => {
             this.count++
-            this.display.innerText = this.count
+            display.innerText = this.count
         }, 1000)
     }
 
     timerStop(){
         clearInterval(this.timer);
+    }
+
+    resetTimer(display){
+        this.count = 0
+        display.innerText = this.count
     }
 }
