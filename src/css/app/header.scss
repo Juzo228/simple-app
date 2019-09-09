@@ -1,4 +1,4 @@
-@import './commons.scss';
+@import './common.scss';
 
 .header{
     width: 100%;
@@ -10,6 +10,6 @@
     }
 
     &__title{
-        @include title(blue);
+        @include title(#000);
     }
 }

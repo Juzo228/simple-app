@@ -1,9 +1,31 @@
 body{
     ul, li{
-        display:block;
+        display: block;
         padding: 0;
     }
+
     li{
         list-style-type: none;
     }
+
+    .pretty-btn{
+        font-size: 10x;
+        padding: 10px 20px;
+        margin-left: 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(228, 157, 27, 0.63);
+        transition: all .5s;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.452);
+
+        &:focus{
+            transition: all .5s ease-in;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.192);
+        }
+    }
+
+    @import './app/header.scss';
+    @import './app/about.scss';
+    @import './app/footer.scss';
 }
+

@@ -1,8 +1,9 @@
 const { src, dest, parallel } = require('gulp');
-const webpack = require ('webpack');
-const webpackStream = require ('webpack-stream');
+const webpack = require('webpack');
+const webpackStream = require('webpack-stream');
 const sass = require('gulp-sass');
-    sass.compiler = require('node-sass');
+
+sass.compiler = require('node-sass');
 
 function js(){
     return src('./src/js/main.js')
@@ -11,19 +12,19 @@ function js(){
                 filename:'bundle.js'
             },
             resolve:{
-                extensions: ['.js', '.json']
+                extensions:['.js', '.json']
             },
             module:{
                 rules:[
                     {
-                        test: /\.(js)$/,
-                        use: 'babel-loader',
-                        exclude: /(node_modules)/
+                        test:/\.(js)$/,
+                        use:'babel-loader',
+                        exclude:/(node_modules)/
                     }
                 ]
             },
-            mode: 'production'
-        }, webpack))
+            mode:'production'
+        },webpack))
         .pipe(dest('./app/static/js'))
 }
 

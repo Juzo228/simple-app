@@ -1,3 +1,18 @@
-import Counter from './counter'
+import Counter from './components/Counter'
+import { BaseButton, PrettyButton, FunctionalButton } from './components/Buttons'
 
-const counter = new Counter(document.getElementById('counter'));
+
+const baseBtn = new BaseButton('footer', 'base')
+baseBtn.render()
+
+const prettyBtn = new PrettyButton('footer', 'pretty', 'pretty-btn')
+prettyBtn.render()
+
+const funcBtn =  new FunctionalButton(
+    'footer', 
+    'best', 
+    'pretty-btn', 
+    () => { alert('Функция выполнена')}
+)
+
+funcBtn.render()
